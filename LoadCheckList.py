@@ -18,7 +18,7 @@ if __name__ == '__main__':
         print chklst_id[0]
     
     # Update
-    count = accessData.update_chklist('101', 'CM')
+    count = accessData.update_areacode('101', 'CM')
     print ("%s rows updated" % (count))
         
     # Delete

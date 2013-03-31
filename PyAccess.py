@@ -28,7 +28,7 @@ class PyAccess():
         self.conn.commit()
         return count
         
-    def update_chklist(self, chklst_id, area_code):
+    def update_areacode(self, chklst_id, area_code):
         sql = "UPDATE tblChkLst " +\
               "SET area_code = ? " +\
               "WHERE chklst_id = ?;"
