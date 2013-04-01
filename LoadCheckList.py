@@ -4,28 +4,27 @@ from PyAccess import PyAccess
 if __name__ == '__main__':
     accessData = PyAccess()    
     
-    # Insert some rows
-    # args = ('Tim Top', 4, 'HR', 'A ref')
-    # newID = accessData.insert_chklist(args)    
-    # print ("New Checklist = %s" % (newID))
+    print "*************** Insert New Checklist ***************"
+    args = ('Tim Top', 4, 'HR', 'A ref')
+    newID = accessData.insert_chklist(args)    
+    print ("New Checklist = %s" % (newID))
     
-    # Run a query
+    print "*************** Run a Query ***********************"
     rows = accessData.get_chklists('HR')
     iTotRecs = len(rows)
     print ("%s found" % (iTotRecs))
-    
     for chklst_id in rows:
         print chklst_id[0]
     
-    # Update
-    count = accessData.update_areacode('101', 'CM')
+    print "*************** Update Area Code *******************"
+    count = accessData.update_areacode('101', 'RM')
     print ("%s rows updated" % (count))
         
-    # Delete
-    # count = accessData.delete_chklist(100)
-    # print ("%s rows deleted" % (count))
+    print "*************** Delete a Row ***********************"
+    count = accessData.delete_chklist(100)
+    print ("%s rows deleted" % (count))
     
-    # Query Excel using a named range
+    print "*************** Query Excel ************************"
     rows = accessData.query_excel()
     for exData in rows:
         print exData
