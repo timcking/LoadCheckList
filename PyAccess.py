@@ -1,25 +1,26 @@
 import pyodbc
 
 class PyAccess():
+    # For Access
     connect_str = 'Driver={Microsoft Access Driver (*.mdb, *.accdb)};DBQ=.\signal_dev.accdb;'
     conn = pyodbc.connect(connect_str)
     cursor = conn.cursor()
+    
+    # For Excel
+    connect_str = 'Driver={Microsoft Excel Driver (*.xls, *.xlsx, *.xlsm, *.xlsb)};DBQ=.\unit_tests.xlsx;'
+    exConn = pyodbc.connect(connect_str, autocommit = True)
+    exCursor = exConn.cursor()
 
     def __init__(self):
         pass
     
-    def query_excel(self):
-        DSN = 'Driver={Microsoft Excel Driver (*.xls, *.xlsx, *.xlsm, *.xlsb)};DBQ=.\unit_tests.xlsx;'
-        exConn = pyodbc.connect(DSN, autocommit = True)
-        exCursor = exConn.cursor()
+    def get_excel_chklist(self):
+        pass
         
-        sql = "SELECT * from tblItems"
-        
-        exCursor.execute(sql, )
-        rows = exCursor.fetchall()
-        
-        exCursor.close()
-        exConn.close()
+    def get_excel_items(self):
+        sql = "SELECT * from exItems"
+        self.exCursor.execute(sql, )
+        rows = self.exCursor.fetchall()
         return rows
     
     def delete_chklist(self, chklst_id):
@@ -61,4 +62,5 @@ class PyAccess():
         
     def close_cursor(self):
         self.cursor.close()        
+        self.exCursor.close()        
         

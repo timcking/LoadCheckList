@@ -25,7 +25,7 @@ if __name__ == '__main__':
     print ("%s rows deleted" % (count))
     
     print "*************** Query Excel ************************"
-    rows = accessData.query_excel()
+    rows = accessData.get_excel_items()
     for exData in rows:
         print exData
     
