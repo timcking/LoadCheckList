@@ -15,7 +15,10 @@ class PyAccess():
         pass
     
     def get_excel_chklist(self):
-        pass
+        sql = "SELECT chklst_name, template_id, area_code, reference FROM exChkLst;"
+        self.exCursor.execute(sql, )
+        row = self.exCursor.fetchone()
+        return row
         
     def get_excel_items(self):
         sql = "SELECT * from exItems"

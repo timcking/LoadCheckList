@@ -4,12 +4,17 @@ from PyAccess import PyAccess
 if __name__ == '__main__':
     accessData = PyAccess()    
     
-    print "*************** Insert New Checklist ***************"
-    args = ('Tim Top', 4, 'HR', 'A ref')
+    # print "*************** Insert New Checklist ***************"
+    # args = ('Tim Top', 4, 'HR', 'A ref')
+    # newID = accessData.insert_chklist(args)    
+    # print ("New Checklist = %s" % (newID))
+    
+    print "*********** Insert a Checklist from Excel ************"
+    args = accessData.get_excel_chklist()
     newID = accessData.insert_chklist(args)    
     print ("New Checklist = %s" % (newID))
     
-    print "*************** Run a Query ***********************"
+    print "**************** Run a Query ***********************"
     rows = accessData.get_chklists('HR')
     iTotRecs = len(rows)
     print ("%s found" % (iTotRecs))
