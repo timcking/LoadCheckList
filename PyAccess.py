@@ -19,6 +19,12 @@ class PyAccess():
         self.exCursor.execute(sql, )
         row = self.exCursor.fetchone()
         return row
+    
+    def get_excel_headers(self):
+        sql = "SELECT sequence, chklst_header_text FROM exHeaders;"
+        self.exCursor.execute(sql, )
+        row = self.exCursor.fetchall()
+        return row
         
     def get_excel_items(self):
         sql = "SELECT * from exItems"

@@ -9,6 +9,15 @@ if __name__ == '__main__':
     # newID = accessData.insert_chklist(args)    
     # print ("New Checklist = %s" % (newID))
     
+    print "**************** Get Headers ***********************"
+    rows = accessData.get_excel_headers()
+    for row in rows:
+        print ("Seq: %d, Text: %s" % (row[0], row[1]))
+    
+    # Could use this to insert into another table
+    # print rows:  [(1.0, 'Professional Delivery'), (2.0, 'Defects'), (3.0, 'Unit Tests')]
+    # executemany("insert into tblChkLstHeader(sequence, chklst_header_text) values (?, ?)", rows)
+    
     print "*********** Insert a Checklist from Excel ************"
     args = accessData.get_excel_chklist()
     newID = accessData.insert_chklist(args)    
